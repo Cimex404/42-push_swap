@@ -35,14 +35,14 @@ int	fill_stack_a(t_stack *a, char *av_j, int start_index)
 	i = 0;
 	nmb = ft_split(av_j, ' ');
 	if (nmb == NULL)
-		return (ft_printf("Error"), -1);
+		return (ft_printf_err("Error"), -1);
 	while (nmb[i] != NULL)
 	{
 		a->list[i + k] = ft_atoi(nmb[i]);
 		if (check_limit(a->list[i + k]) == LONG_MIN)
 		{
 			free_split_allocation(nmb, i);
-			return (ft_printf("Error"), -1);
+			return (ft_printf_err("Error"), -1);
 		}
 		i ++;
 	}

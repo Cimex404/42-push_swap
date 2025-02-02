@@ -69,9 +69,9 @@ static void	rotate_stacks(t_stack *a, t_stack *b)
 	i = get_index(*a, v);
 	j = get_b(a, b, i);
 	if (i <= a->len - i && j <= b->len - j && i != 0 && j != 0)
-		rr(a, b);
+		rr(a, b, 1);
 	else if (i > a->len - i && j > b->len - j && i != 0 && j != 0)
-		rrr(a, b);
+		rrr(a, b, 1);
 	else
 	{
 		if (i <= a->len - i && i != 0)
@@ -102,5 +102,5 @@ void	sort_and_push(t_stack *a, t_stack *b)
 			break ;
 		rotate_stacks(a, b);
 	}
-	pb(a, b);
+	pb(a, b, 1);
 }

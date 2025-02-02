@@ -41,5 +41,5 @@ void	sort_and_push_back(t_stack *a, t_stack *b)
 			rra(a, 1);
 		idx_a = get_position_a(a, b);
 	}
-	pa(a, b);
+	pa(a, b, 1);
 }

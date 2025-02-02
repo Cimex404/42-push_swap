@@ -19,8 +19,7 @@
 *	with an or statement. The thrid if statement does not have an or statement
 *	because that sixth case would check for the one configuration where the numbers
 *	are already sorted.
-*	The sorting happens in a while loop, because the maximum number of
-*	operations needed is 2.
+*	The sorting happens in a while loop, because the sorting can take one or two operations
 */
 
 void	sort_three(t_stack *stk)

@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdio.h>
-# include "../libft/libft.h"
 
 /*		STRUCT		*/
 typedef struct s_stack
@@ -50,23 +49,31 @@ void	sort_and_push(t_stack *a, t_stack *b);
 void	sort_and_push_back(t_stack *a, t_stack *b);
 
 /*		Operations		*/
-void	pb(t_stack *a, t_stack *b);
-void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b, int prnt);
+void	pa(t_stack *a, t_stack *b, int prnt);
 void	sa(t_stack *a, int prnt);
 void	sb(t_stack *b, int prnt);
-void	ss(t_stack *a, t_stack *b);
+void	ss(t_stack *a, t_stack *b, int prnt);
 void	ra(t_stack *a, int prnt);
 void	rb(t_stack *b, int prnt);
-void	rr(t_stack *a, t_stack *b);
+void	rr(t_stack *a, t_stack *b, int prnt);
 void	rra(t_stack *a, int prnt);
 void	rrb(t_stack *b, int prnt);
-void	rrr(t_stack *a, t_stack *b);
+void	rrr(t_stack *a, t_stack *b, int prnt);
+
+/*		Libft		 */
+int		ft_strlen(const char *str);
+int		ft_strcmp(const char *s1, const char *s2);
+int		ft_atoi(const char	*str);
+int		spltnmb(const char *s, int c, int len);
+char	**ft_split(const char *str, char c);
 
 /*		Output		*/
 void	ft_printf(char *str);
+void	ft_printf_err(char *str);
 
 /*		Memory		*/
-void	free_mem(t_stack stk);
+void	free_stack(t_stack stk);
 void	free_split_allocation(char **ptr, int x);
 
 #endif

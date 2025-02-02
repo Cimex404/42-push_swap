@@ -46,9 +46,10 @@ void	sb(t_stack *b, int prnt)
 	}
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b, int prnt)
 {
 	sa(a, 0);
 	sb(b, 0);
-	ft_printf("ss");
+	if (prnt)
+		ft_printf("ss");
 }

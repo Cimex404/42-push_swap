@@ -42,8 +42,8 @@ void	simple_sort(t_stack *a, t_stack *b)
 			else
 				rra(a, 1);
 		}
-		pb(a, b);
+		pb(a, b, 1);
 	}
 	while (b->len > 0)
-		pa(a, b);
+		pa(a, b, 1);
 }

@@ -20,7 +20,7 @@
 *	to fill up the empty slot created from pushing the first number.
 */
 
-void	pb(t_stack *a, t_stack *b)
+void	pb(t_stack *a, t_stack *b, int prnt)
 {
 	int	i;
 
@@ -39,10 +39,11 @@ void	pb(t_stack *a, t_stack *b)
 	}
 	a->len --;
 	b->len ++;
-	ft_printf("pb");
+	if (prnt)
+		ft_printf("pb");
 }
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b, int prnt)
 {
 	int	i;
 
@@ -61,5 +62,6 @@ void	pa(t_stack *a, t_stack *b)
 	}
 	b->len --;
 	a->len ++;
-	ft_printf("pa");
+	if (prnt)
+		ft_printf("pa");
 }

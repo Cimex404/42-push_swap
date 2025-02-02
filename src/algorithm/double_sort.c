@@ -28,9 +28,9 @@ void	double_sort(t_stack *a, t_stack *b)
 	int	i;
 
 	if (a->len > 3)
-		pb(a, b);
+		pb(a, b, 1);
 	if (a->len > 3)
-		pb(a, b);
+		pb(a, b, 1);
 	while (a->len > 3 && !stack_is_sorted(*a))
 		sort_and_push(a, b);
 	if (a->len == 3)

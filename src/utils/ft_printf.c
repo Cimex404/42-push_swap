@@ -29,3 +29,16 @@ void	ft_printf(char *str)
 	}
 	write(1, "\n", 1);
 }
+
+void	ft_printf_err(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(2, &str[i], 1);
+		i ++;
+	}
+	write(2, "\n", 1);
+}

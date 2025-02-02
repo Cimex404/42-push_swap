@@ -1,32 +1,39 @@
 C = cc
 CFLAGS= -Wall -Wextra -Werror -Iinclude
 NAME = push_swap
-LIBFT = libft/libft.a
-SRC = src/main.c src/utils/ft_printf.c \
-	src/utils/input_handle.c src/utils/free_memory.c src/utils/check_sorted.c \
-	src/utils/check_double.c src/utils/get_highlow.c src/utils/min.c \
-	src/algorithm/simple_sort.c src/algorithm/three_sort.c src/algorithm/double_sort.c \
-	src/algorithm/double_sort_utils.c src/algorithm/double_sort_back.c \
-	src/operations/push_command.c src/operations/swap_command.c src/operations/rotate_command.c \
-	src/operations/rev_rotate_command.c
-OBJ = $(SRC:.c=.o)
+CHECKER = checker
 
-all: $(NAME)
+#			SOURCE FILES
+SRC_UTILS = $(addprefix utils/, ft_printf.c input_handle.c free_memory.c check_sorted.c check_double.c get_highlow.c min.c)
+SRC_ALGTHM = $(addprefix algorithm/, simple_sort.c three_sort.c double_sort.c double_sort_utils.c double_sort_back.c)
+SRC_OP = $(addprefix operations/, push_command.c swap_command.c rotate_command.c rev_rotate_command.c)
+SRC_LIBFT = $(addprefix libft/, ft_strlen.c ft_split.c ft_atoi.c)
+SRC_CHECK = $(addprefix checker/, checker.c get_next_line.c get_next_line_utils.c)
+
+SRC = $(addprefix src/, main.c $(SRC_UTILS) $(SRC_ALGTHM) $(SRC_OP) $(SRC_LIBFT))
+CHECK_SRC = $(addprefix src/, $(SRC_CHECK) $(SRC_OP) $(SRC_UTILS) $(SRC_LIBFT))
+
+#			OBJECT FILES
+OBJ = $(SRC:.c=.o)
+CHECK_OBJ = $(CHECK_SRC:.c=.o)
+
+#			COMPILATION RULES
+all: $(NAME) bonus
 
 $(NAME): $(OBJ)
-	make -C libft
-	$(CC) $(CFLAGS) -o $(NAME) $(LIBFT) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+
+bonus: $(CHECK_OBJ)
+	$(CC) $(CFLAGS) -o $(CHECKER) $(CHECK_OBJ)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -g
+	@$(CC) $(CFLAGS) -c $< -o $@ -g
 
 clean:
-	rm -f $(OBJ)
-	make fclean -C libft
+	rm -f $(OBJ) $(CHECK_OBJ)
 
 fclean: clean
-	rm -f $(NAME)
-	make clean -C libft
+	rm -f $(NAME) $(CHECKER)
 
 re: fclean all
 

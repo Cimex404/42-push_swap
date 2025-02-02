@@ -65,18 +65,18 @@ int	main(int ac, char **av)
 	a.list = malloc(sizeof(int *) * get_true_argc(ac, av));
 	b.list = malloc(sizeof(int *) * get_true_argc(ac, av));
 	if (a.list == NULL || b.list == NULL)
-		return (free_mem(a), free_mem(b), 0);
+		return (free_stack(a), free_stack(b), 1);
 	a.len = fill_stack(&a, &b, ac, av);
 	b.len = 0;
 	if (a.len == 0 || stack_is_sorted(a))
-		return (free_mem(a), free_mem(b), 0);
+		return (free_stack(a), free_stack(b), 0);
 	if (!double_error(a))
-		return (free_mem(a), free_mem(b), ft_printf("Error"), 0);
+		return (free_stack(a), free_stack(b), ft_printf_err("Error"), 1);
 	if (a.len < 5)
 		simple_sort(&a, &b);
 	else
 		double_sort(&a, &b);
-	free_mem(a);
-	free_mem(b);
+	free_stack(a);
+	free_stack(b);
 	return (0);
 }

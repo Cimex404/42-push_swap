@@ -55,9 +55,10 @@ void	ra(t_stack *a, int prnt)
 		ft_printf("ra");
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_stack *a, t_stack *b, int prnt)
 {
 	ra(a, 0);
 	rb(b, 0);
-	ft_printf("rr");
+	if (prnt)
+		ft_printf("rr");
 }
