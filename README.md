@@ -2,7 +2,7 @@
 
 Push_swap is a 42 project that teaches about algorithms.
 
-This project creates an executable called "push_swap".
+This project creates an executable called "push_swap" and a checker program called "checker".
 The projects provides two stacks we can use to store the numbers in:
 ```
 Stack a:	Is filled with all the inputs that are given to the program as arguments.
@@ -34,7 +34,7 @@ You can run push_swap in any of these ways:
 
 ##	Checker program
 Included is also a checker program that will take the same numbers as the push_swap executable,
-as well as the piped output of teh push_swap executable and check if the output of push_swap correctly sorts the numbers.
+as well as the piped output of the push_swap executable and check if the output of push_swap correctly sorts the numbers.
 It will display "OK" in case of success, "KO" in case of failure and "Error" in case of invalid input.
 It is run as follows:
 ```
